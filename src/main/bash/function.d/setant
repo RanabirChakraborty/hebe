@@ -1,0 +1,10 @@
+function setant {
+[ "$1" ] || { echo No Ant version specified'!'; return 1; }
+local command=". $common_variables && echo \$ANT""$1"
+local antpath=`eval $command`
+
+[ -d "$antpath/bin" ] || { echo Missing Ant version or a BUG'!'; return 1; }
+
+export ANT_HOME="$antpath"
+export PATH=$ANT_HOME/bin:$PATH
+}

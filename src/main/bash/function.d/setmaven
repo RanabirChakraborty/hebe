@@ -1,0 +1,10 @@
+function setmaven {
+[ "$1" ] || { echo No Maven version specified'!'; return 1; }
+local command=". $common_variables && echo \$MAVEN""$1"
+local mvnpath=`eval $command`
+
+[ -d "$mvnpath/bin" ] || { echo Missing Maven version or a BUG'!'; return 1; }
+
+export M2_HOME="$mvnpath"
+export PATH=$M2_HOME/bin:$PATH
+}

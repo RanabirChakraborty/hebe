@@ -1,0 +1,9 @@
+function kill_sunri {
+ (
+    ps -eaf --columns 5000 | grep 'J2EE 1.4 Server' | grep -v grep | awk '{ print $2; }' | xargs kill
+    ps -eaf --columns 5000 | grep 'J2EE 1.4 Server' | grep -v grep | awk '{ print $2; }' | xargs kill -9
+    ps -eaf --columns 5000 | grep imqbroker | grep -v grep | awk '{ print $2; }' | xargs kill
+    ps -eaf --columns 5000 | grep imqbroker | grep -v grep | awk '{ print $2; }' | xargs kill -9
+ ) || return 0
+}
+

@@ -1,0 +1,5 @@
+function runejb3tck_mdbsubset {
+ (
+     tsant -Dmultiple.tests="com.sun.ts.tests.ejb30.bb.localaccess.mdbclient com/sun/ts/tests/ejb30/bb/mdb com.sun.ts.tests.ejb30.tx.mdb" runclient	
+ ) || return 0
+}

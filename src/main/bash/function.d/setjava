@@ -1,0 +1,11 @@
+function setjava {
+   [ "$1" ] || { echo No Java version specified'!'; return 1; }
+   local javaversion=`eval echo $1 | tr "[:lower:]" "[:upper:]"`
+   local command=". $common_variables && echo \$JAVA""$javaversion"
+   local javapath=`eval $command`
+
+   [ -d "$javapath/bin" ] || { echo Missing JAVA version or a BUG'!'; return 1; }
+
+   export JAVA_HOME="$javapath"
+   export PATH=$JAVA_HOME/bin:$PATH
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jboss.jboss.set</groupId>
+    <artifactId>jboss-set-ci-scripts</artifactId>
+    <version>1.1.0</version>
+    <packaging>jar</packaging>
+
+    <scm>
+      <connection>scm:git:git://github.com/jboss-set/ci-scripts.git</connection>
+      <developerConnection>scm:git:git@github.com:jboss-set/ci-scripts.git</developerConnection>
+      <url>https://github.com/jboss-set/ci-scripts</url>
+      <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+      <finalName>jboss-set-ci-scripts</finalName>
+      <resources>
+        <resource>
+        <directory>src/main/bash</directory>
+       </resource>
+      </resources>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>rpm-maven-plugin</artifactId>
+          <version>2.1.5</version>
+          <executions>
+            <execution>
+              <id>generate-rpm</id>
+              <goals>
+                <goal>rpm</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <group>JBoss SET/Tools</group>
+            <packager>JBoss SET</packager>
+            <mappings>
+              <mapping>
+                <directory>/opt/jboss-set-ci-scripts/</directory>
+                <recurseDirectories>true</recurseDirectories>
+                <directoryIncluded>true</directoryIncluded>
+ 			    <sources>
+                  <source>
+                    <location>src/main/bash</location>
+                    <includes>
+                        <include>*.*</include>
+                        <include>function.d/*</include>
+                    </includes>
+                  </source>
+                </sources>
+                <username>jboss</username>
+                <groupname>jboss</groupname>
+              </mapping>
+            </mappings>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+</project>
