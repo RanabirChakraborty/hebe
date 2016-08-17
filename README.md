@@ -1,4 +1,4 @@
-JBoss SET CI Scripts
+JBoss SET Continous Integration Scripts
 ====
 
 Set of custom scripts to install on SET CI server. Those scripts are supposed to be living on the CI
