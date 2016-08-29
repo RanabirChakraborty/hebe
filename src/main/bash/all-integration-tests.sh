@@ -2,6 +2,8 @@
 #
 # Run all integration test from Widlfly/EAP
 #
+set -e
+
 # Allow to override the following values:
 readonly LOCAL_REPO_DIR=${LOCAL_REPO_DIR:-"${WORKSPACE}/maven-local-repository"}
 readonly OLD_RELEASES_FOLDER=${OLD_RELEASES_FOLDER:-'/opt/old-as-releases'}
