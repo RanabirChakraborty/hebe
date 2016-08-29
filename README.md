@@ -1,4 +1,4 @@
-JBoss SET Continous Integration Scripts
+Hebe: JBoss SET Continous Integration Scripts
 ====
 
 Set of custom scripts to install on SET CI server. Those scripts are supposed to be living on the CI
@@ -19,3 +19,7 @@ Release
 * tag the repository
 * run the build
 * copy and install the RPM !
+
+
+Hebe is one of the infant of Zeus: https://en.wikipedia.org/wiki/Hebe
+(and Zeus is the name of the Ansible config for Thunder...)
