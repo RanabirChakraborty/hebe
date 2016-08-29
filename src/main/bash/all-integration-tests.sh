@@ -22,10 +22,17 @@ fi
 if [ -n "${MAVEN_HOME}" ]; then
   echo "No Maven Home defined - setting to default: ${DEFAULT_MAVEN_HOME}"
   export MAVEN_HOME=${DEFAULT_MAVEN_HOME}
-  cd $(pwd)/tools
-  bash ./download-maven.sh
-  cd -
-  export PATH=${MAVEN_HOME}/bin:${PATH}
+  if [ ! -d  "${DEFAULT_MAVEN_HOME}" ]; then
+    echo "No maven install found (${DEFAULT_MAVEN_HOME}) - downloading one:"
+    cd $(pwd)/tools
+    bash ./download-maven.sh
+    cd -
+  fi
+
+  readonly MAVEN_BIN_DIR=${MAVEN_HOME}/bin
+  echo "Adding ${MAVEN_BIN_DIR} to PATH:${PATH}."
+  export PATH=${MAVEN_BIN_DIR}:${PATH}
+  chmod +x ${MAVEN_BIN_DIR}/*
   which mvn
   mvn -version
 fi
