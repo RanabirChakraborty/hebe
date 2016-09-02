@@ -2,6 +2,8 @@
 #
 # Build Wildlfy/EAP
 #
+
+
 # Allow to override the following values:
 readonly LOCAL_REPO_DIR=${LOCAL_REPO_DIR:-"${WORKSPACE}/maven-local-repository"}
 readonly MEMORY_SETTINGS=${MEMORY_SETTINGS:-'-Xmx1024m -Xms512m -XX:MaxPermSize=256m'}
@@ -31,5 +33,6 @@ mkdir -p "${LOCAL_REPO_DIR}"
 export MAVEN_OPTS="${MAVEN_OPTS} ${MEMORY_SETTINGS}"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.repo.local=${LOCAL_REPO_DIR}"
 
+unset JBOSS_HOME
 ./build.sh clean install -B
 kill_jboss
