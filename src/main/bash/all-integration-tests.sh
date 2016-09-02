@@ -13,6 +13,14 @@ readonly MAVEN_IGNORE_TEST_FAILURE=${MAVEN_IGNORE_TEST_FAILURE:-'false'}
 readonly DEFAULT_MAVEN_HOME="$(pwd)/tools/maven"
 # and will reuse MAVEN_OPTS and TESTSUITE_OPTS if defined.
 
+if [ ! -d "${HOME}" ]; then
+  # some test uses ${user.HOME} 
+  export HOME=/home/jboss
+fi
+
+# some test uses JBOSS_HOME if set
+unset JBOSS_HOME
+
 echo "JAVA_HOME: ${JAVA_HOME}"
 if [ -n "${JAVA_HOME}" ]; then
    export PATH=${JAVA_HOME}/bin:${PATH}
