@@ -1,0 +1,15 @@
+* Fri Sep 2 2016 Romain Pelisse <belaran@redhat.com> 1.1.0
+- add new eap-all-test.sh script
+- add docker image sanity check
+- add handy script to browse docker registry
+- ensure that HOME env_var is set, as it used by some tests, and that JBOSS_HOME is unset
+- fix basedir for scripts in common_bash.sh
+- unsure JBOSS_HOME is NOT set as this may mess up with some tests down the road
+- misc: add some misc infos to README
+- ensure no mvn download happens when maven dir already present
+- add set -e to ensure scripts stop at first failing command
+- set up JAVA_HOME and MAVEN_HOME - if missing, before firing the all integration test
+- add new scripts for 1.1.0
+
+* Wed Aug 17 2016 Romain Pelisse <belaran@redhat.com> 1.0.0
+- Initial RPM release
