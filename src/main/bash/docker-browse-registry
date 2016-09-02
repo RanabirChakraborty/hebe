@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Handy scripts to browse a Docker registry and see which images are available.
+#
+readonly REGISTRY=${2:-'registry.access.redhat.com:80'}
+
+readonly DEFAULT_QUERY='rhel'
+readonly QUERY=${1:-${DEFAULT_QUERY}}
+
+usage() {
+
+  echo "$(basename ${0}) [query] [registry]"
+  echo ''
+  echo 'Default values are:'
+  echo "- query:    ${DEFAULT_QUERY}"
+  echo "- registry: ${REGISTRY}"
+  echo ''
+}
+
+while getopts h OPT; do
+  case "$OPT" in
+    h)
+      usage
+      exit 0
+      ;;
+  esac
+done
+
+curl -X GET "http://${REGISTRY}/v1/search?q=${QUERY}" | python -m json.tool
