@@ -20,6 +20,6 @@ Release
 * run the build
 * copy and install the RPM !
 
-
-Hebe is one of the infant of Zeus: https://en.wikipedia.org/wiki/Hebe
-(and Zeus is the name of the Ansible config for Thunder...)
+Note:
+[Hebe](https://en.wikipedia.org/wiki/Hebe) is one of the infant of Zeus - which is the named of the
+Ansible configuration in charge of Thunder.
