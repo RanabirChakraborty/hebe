@@ -1,4 +1,4 @@
-#!/bin/bah
+#!/bin/bash
 
 . /opt/jboss-set-ci-scripts/common_bash.sh
 set_ip_addresses
