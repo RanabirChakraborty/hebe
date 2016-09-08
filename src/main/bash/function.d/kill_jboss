@@ -9,10 +9,16 @@ function kill_jboss {
   # fetch PID of running services to be sure this script will NOT shut'em down by mistake
   jboss_eap_7_pid=$(cat /var/run/jboss-eap/jboss-eap.pid)
   jbossas_pid=$(cat /var/run/jbossas-standalone)
+  
+  echo "$(date date +%H:%M:%S) - $(caller 0) - kill_jboss has been invoked"  >> /tmp/kill_jboss.log
+  return 0
+
 
  (
   if [[ $(uname -s) == 'Linux' ]]; then
    local PS='ps -eaf --columns 20000 | grep "${process_identifier}" | grep -v "${jboss_eap_7_pid}" | grep -v "${jbossas_pid}" | grep -v -w grep | awk '\''{ print $2; }'\'
+   eval ${PS} >> /tmp/kill_jboss.log
+   exit 0
    eval "${PS}" | xargs kill -3
    sleep 1
    eval "${PS}" | xargs kill
