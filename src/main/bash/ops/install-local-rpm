@@ -1,0 +1,25 @@
+#!/bin/bash
+set +e
+
+readonly RPM_FILE=${1}
+readonly REPO_FOLDER=${2:-'/root/jboss-set.yum.repo/'}
+readonly REPO_NAME='jboss-set'
+
+if [ ! -e "${RPM_FILE}" ]; then
+  echo "No such RPM file: ${RPM_FILE}."
+  exit 1
+fi
+
+if [ ! -d "${REPO_FOLDER}" ]; then
+  echo "No such folder: ${REPO_FOLDER}."
+  exit 2
+fi
+
+cp "${RPM_FILE}" "${REPO_FOLDER}"
+
+cd "${REPO_FOLDER}"
+createrepo .
+cd -
+
+yum clean all
+echo "You can now install or update your package $(basename ${RPM_FILE}) with Yum (or the rpm command)"

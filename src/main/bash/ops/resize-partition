@@ -1,0 +1,24 @@
+#!/bin/bash
+
+readonly SIZE=${1:-'+100G'}
+readonly PARTITION=${2:-'/dev/mapper/FAST-HOME'}
+
+usage() {
+
+  local script_name=$(basename ${0})
+  echo "${script_name} <size-change> <partition>"
+  echo
+  echo "ex: ${script_name} +100G /dev/mapper/FAST-HOME"
+  echo "ex: ${script_name} -10G /dev/mapper/FAST-HOME"
+  echo
+
+}
+
+if [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
+  usage
+  exit
+fi
+
+set -e
+lvextend "-L${SIZE}" "${PARTITION}"
+resize2fs "${PARTITION}"

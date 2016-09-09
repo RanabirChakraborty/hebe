@@ -52,6 +52,7 @@
                     <includes>
                         <include>*.*</include>
                         <include>function.d/*</include>
+                        <include>ops</include>
                     </includes>
                   </source>
                 </sources>
