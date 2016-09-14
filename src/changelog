@@ -1,3 +1,10 @@
+* Wed Sep 14 2016 Romain Pelisse <belaran@redhat.com> 1.2.0
+- add ops scripts for thunder
+- bump version to 1.1.1
+- update changelog
+- disable kill_jboss
+- add exec right on build-eap-with-all-tests.sh
+
 * Thu Sep 8 2016 Romain Pelisse <belaran@redhat.com> 1.1.1
 - disable broken 'kill_jboss'
 
