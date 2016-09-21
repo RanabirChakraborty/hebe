@@ -1,6 +1,6 @@
 #!/bin/bash
 readonly DATE_FORMAT='+%s'
-readonly SUSPICIOUS_RUNNING_TIME=${SUSPICIOUS_RUNNING_TIME:-'5000'}
+readonly SUSPICIOUS_RUNNING_TIME=${SUSPICIOUS_RUNNING_TIME:-'86395'}
 
 today=$(date "${DATE_FORMAT}")
 docker ps | sed -e '/^CONTAINER/d' -e 's/^.*tcp *//' | \
