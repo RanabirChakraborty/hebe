@@ -34,5 +34,5 @@ export MAVEN_OPTS="${MAVEN_OPTS} ${MEMORY_SETTINGS}"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.repo.local=${LOCAL_REPO_DIR}"
 
 unset JBOSS_HOME
-./build.sh clean install -B
+./build.sh clean install -fae -B
 kill_jboss

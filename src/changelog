@@ -1,3 +1,6 @@
+* Wed Sep 21 2016 Romain Pelisse <belaran@redhat.com> 1.2.1
+- created new script to run build of EAP with -fae (to generate artefacts)
+
 * Thu Sep 15 2016 Romain Pelisse <belaran@redhat.com> 1.2.1
 - change build config to includes scripts inside ops folder
 
