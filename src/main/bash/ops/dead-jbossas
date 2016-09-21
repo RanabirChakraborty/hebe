@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# detects JBoss AS instance that are still running without not existing JBOSS_HOME folder.
+
+
+ps -eF | grep -e '-D\[Standalone\]' | sed -e '/thunder.xml/d' |\
+ sed -e 's/^.*-Djboss.home.dir=//' | cut -f1 -d\ |\
+while
+  read jboss_home
+do 
+  pid=$(ps -eF | grep -e ${jboss_home} | sed -e '/grep/d' -e 's/^[^ ]* *//' | cut -f1 -d\  )  
+  test -d ${jboss_home}
+  if [ $? -ne 0 ]; then 
+    echo "No such folder - but a JBoss AS instance (${pid}) appears to be running anyway:${jboss_home}."
+  else 
+    echo "JBoss AS (${pid}) appears legit (home:${jboss_home}."
+  fi
+done
