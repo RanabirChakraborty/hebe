@@ -1,3 +1,6 @@
+* ??? Sep ?? 2016 Romain Pelisse <belaran@redhat.com> 1.2.4
+- remove .sh extension from ops scripts
+
 * Wed Sep 21 2016 Romain Pelisse <belaran@redhat.com> 1.2.3
 - add script to detect dead instance of JBoss AS
 - fix suspicious time in check-docker-container
