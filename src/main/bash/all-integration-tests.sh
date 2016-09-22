@@ -14,7 +14,7 @@ readonly DEFAULT_MAVEN_HOME="$(pwd)/tools/maven"
 # and will reuse MAVEN_OPTS and TESTSUITE_OPTS if defined.
 
 if [ ! -d "${HOME}" ]; then
-  # some test uses ${user.HOME} 
+  # some test uses ${user.HOME}
   export HOME=/home/jboss
 fi
 
@@ -27,7 +27,7 @@ if [ -n "${JAVA_HOME}" ]; then
    java -version
 fi
 
-if [ -n "${MAVEN_HOME}" ]; then
+if [ -z "${MAVEN_HOME}" ]; then
   echo "No Maven Home defined - setting to default: ${DEFAULT_MAVEN_HOME}"
   export MAVEN_HOME=${DEFAULT_MAVEN_HOME}
   if [ ! -d  "${DEFAULT_MAVEN_HOME}" ]; then
