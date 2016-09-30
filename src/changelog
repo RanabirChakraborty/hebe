@@ -1,3 +1,7 @@
+* ??? ??? ?? 2016 Romain Pelisse <belaran@redhat.com> 1.2.5
+- fix handling default mvn
+- remove .sh extension from ops scripts
+
 * Fri Sep 30 2016 Romain Pelisse <belaran@redhat.com> 1.2.4
 - fix handling default mvn
 - remove .sh extension from ops scripts
