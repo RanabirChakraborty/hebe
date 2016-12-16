@@ -27,7 +27,7 @@ if [ -n "${JAVA_HOME}" ]; then
    java -version
 fi
 
-if [ -z "${MAVEN_HOME}" i] || [ ! -e "${MAVEN_HOME}/bin/mvn" ]; then
+if [ -z "${MAVEN_HOME}" ] || [ ! -e "${MAVEN_HOME}/bin/mvn" ]; then
   echo "No Maven Home defined - setting to default: ${DEFAULT_MAVEN_HOME}"
   export MAVEN_HOME=${DEFAULT_MAVEN_HOME}
   if [ ! -d  "${DEFAULT_MAVEN_HOME}" ]; then
