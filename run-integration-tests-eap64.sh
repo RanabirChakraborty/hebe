@@ -49,7 +49,7 @@ echo "Using multicast address $MCAST_ADDR"
 
 export TESTSUITE_OPTS="${TESTSUITE_OPTS} -fae"
 export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Dskip-download-sources -B -Dsurefire.forked.process.timeout=${SUREFIRE_FORKED_PROCESS_TIMEOUT}"
-#export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Dnode0=${MYTESTIP_1} -Dnode1=${MYTESTIP_2} -Dmcast=${MCAST_ADDR}"
+export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Dnode0=${MYTESTIP_1} -Dnode1=${MYTESTIP_2} -Dmcast=${MCAST_ADDR}"
 export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Djboss.test.mixed.domain.dir=${OLD_RELEASES_FOLDER}"
 export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Dmaven.test.failure.ignore=${MAVEN_IGNORE_TEST_FAILURE}"
 #export TESTSUITE_OPTS="${TESTSUITE_OPTS} -Djboss.dist=${EAP_DIST_LOCATION}"
