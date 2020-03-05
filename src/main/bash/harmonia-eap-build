@@ -11,8 +11,10 @@ readonly HARMONIA_BUILD_SCRIPT=${HARMONIA_BUILD_SCRIPT:-"${HARMONIA_FOLDER}/${HA
 readonly MAVEN_SETTINGS_XML=${MAVEN_SETTINGS_XML-'/home/master/settings.xml'}
 
 clean() {
-  if [[ ! -z "${HARMONIA_FOLDER}" ]]; then
-    rm -rf "${HARMONIA_FOLDER}"
+  if [ -z "${KEEP_HARMONIA_FOLDER}" ]; then
+    if [[ ! -z "${HARMONIA_FOLDER}" ]]; then
+      rm -rf "${HARMONIA_FOLDER}"
+    fi
   fi
 }
 trap clean EXIT
