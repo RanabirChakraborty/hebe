@@ -1,5 +1,0 @@
-function runtck {
- (
-     tsant runclient	
- ) || return 0
-}

@@ -1,5 +1,0 @@
-function runtck6 {
- (
-     ant $RUNCLIENT_OPTS runclient	
- ) || return 0
-}

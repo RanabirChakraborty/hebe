@@ -1,6 +1,0 @@
-function kill_derby {
- (
-    ps -eaf --columns 2200 | grep org.apache.derby.drda.NetworkServerControl | grep -v grep | awk '{ print $2; }' | xargs kill
-    ps -eaf --columns 2200 | grep org.apache.derby.drda.NetworkServerControl | grep -v grep | awk '{ print $2; }' | xargs kill -9
- ) || return 0
-}

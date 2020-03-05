@@ -1,6 +1,0 @@
-function kill_rmiiiop_server {
- (
-    ps -eaf --columns 12000 | grep RMIIIOPServer | grep -v grep | awk '{ print $2; }' | xargs kill
-    ps -eaf --columns 12000 | grep start.rmiiiop.server | grep -v grep | awk '{ print $2; }' | xargs kill
- ) || return 0
-}

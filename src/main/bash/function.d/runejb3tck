@@ -1,5 +1,0 @@
-function runejb3tck {
- (
-     tsant -Dmultiple.tests="com/sun/ts/tests/ejb30/assembly com/sun/ts/tests/ejb30/bb com/sun/ts/tests/ejb30/misc com/sun/ts/tests/ejb30/sec com/sun/ts/tests/ejb30/tx com/sun/ts/tests/ejb30/zombie" runclient	
- ) || return 0
-}
