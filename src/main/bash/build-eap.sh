@@ -18,11 +18,6 @@ if [ ! -z "${WORKSPACE}" ]; then
 fi
 echo '.'
 
-. /opt/jboss-set-ci-scripts/common_bash.sh
-set_ip_addresses
-trap "kill_jboss" EXIT INT QUIT TERM
-kill_jboss
-
 which java
 java -version
 
@@ -34,5 +29,4 @@ export MAVEN_OPTS="${MAVEN_OPTS} ${MEMORY_SETTINGS}"
 export MAVEN_OPTS="${MAVEN_OPTS} -Dmaven.repo.local=${LOCAL_REPO_DIR}"
 
 unset JBOSS_HOME
-./build.sh clean install -B
-kill_jboss
+./build.sh clean install -B -fae ${MORE_PARAMS}
